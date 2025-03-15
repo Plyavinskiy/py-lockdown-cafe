@@ -3,6 +3,16 @@ from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list[dict[str, object]], cafe: Cafe) -> str:
+    """Determines if a group of friends can visit the cafe.
+
+    Args:
+        friends (list[dict[str, object]]): List of visitors.
+        cafe (Cafe): The cafe instance.
+
+    Returns:
+        str: A message indicating if friends can visit the cafe,
+             if they need masks, or if they are not vaccinated.
+    """
     masks_to_buy = 0
 
     for friend in friends:

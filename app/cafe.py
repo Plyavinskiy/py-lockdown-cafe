@@ -8,10 +8,23 @@ from app.errors import (
 
 
 class Cafe:
+    """Represents a cafe that visitors can enter if they meet the rules."""
+
     def __init__(self, name: str) -> None:
+        """Initializes the cafe with a given name."""
         self.name = name
 
     def visit_cafe(self, visitor: dict[str, object]) -> str:
+        """Checks if a visitor meets all conditions to enter the cafe.
+
+        Raises:
+            NotVaccinatedError: If the visitor is not vaccinated.
+            OutdatedVaccineError: If the vaccine has expired.
+            NotWearingMaskError: If the visitor is not wearing a mask.
+
+        Returns:
+            str: A welcome message if the visitor meets all conditions.
+        """
         vaccine_info = visitor.get("vaccine")
 
         if not isinstance(vaccine_info, dict):
